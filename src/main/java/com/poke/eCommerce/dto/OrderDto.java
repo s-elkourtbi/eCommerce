@@ -12,6 +12,7 @@ public class OrderDto {
         orderVO.setStatus(order.getStatus());
         orderVO.setTotalAmount(order.getTotalAmount());
         orderVO.setWeight(order.getWeight());
+        orderVO.setIdOrder(order.getIdOrder());
 
         return orderVO;
     }
@@ -23,6 +24,7 @@ public class OrderDto {
         order.setStatus(orderVO.getStatus());
         order.setTotalAmount(orderVO.getTotalAmount());
         order.setWeight(orderVO.getWeight());
+        order.setIdOrder(orderVO.getIdOrder());
 
         return order;
     }

@@ -12,6 +12,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class OrderVO {
 
+    private Long idOrder;
+
     private Status status;
 
     private Long shipmentAmount;

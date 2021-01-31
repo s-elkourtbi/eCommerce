@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ProductService {
 
-    Boolean nouvauProduit(ProductVO productVO);
+    Boolean newProduct(ProductVO productVO);
 
     ProductVO findProductByName(String name);
 

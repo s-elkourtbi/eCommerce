@@ -27,13 +27,13 @@ public class ProductServiceImp implements ProductService {
     private EntityManager em;
 
     @Override
-    public Boolean nouvauProduit(ProductVO productVO) {
+    public Boolean newProduct(ProductVO productVO) {
         Boolean success = Boolean.FALSE;
         try {
 
             productRepository.save(ProducDto.productFromVoToEntitie(productVO));
             success = Boolean.TRUE;
-            log.info("A new product has benn added to to data base ! " + productVO.getName());
+            log.info("A new product has being added to to data base ! " + productVO.getName());
         }catch (TransactionException e) {
             log.error(e.getMessage());
         }
