@@ -30,7 +30,7 @@ public class Product {
     @Column(name = "ID_PRODUCT", nullable = false, unique = true)
     private Long idProduct;
 
-    @Column(name = "NAME", length = 256)
+    @Column(name = "NAME", length = 256, unique = true)
     private String name;
 
     @Column(name = "PRICE", nullable = false)

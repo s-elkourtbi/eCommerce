@@ -11,6 +11,8 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ProductVO {
 
+    private Long idProduct;
+
     private String name;
 
     private Long price;
