@@ -26,6 +26,7 @@ public class ProductServiceImp implements ProductService {
     @Autowired
     private EntityManager em;
 
+    @Override
     public Boolean nouvauProduit(ProductVO productVO) {
         Boolean success = Boolean.FALSE;
         try {
@@ -39,6 +40,7 @@ public class ProductServiceImp implements ProductService {
         return success;
     }
 
+    @Override
     public ProductVO findProductByName(String name) {
         ProductVO productVO = new ProductVO();
         try {
@@ -55,6 +57,7 @@ public class ProductServiceImp implements ProductService {
         return  productVO;
     }
 
+    @Override
     public ProductVO findProductById(Long idProduct) {
         ProductVO productVO = new ProductVO();
         try {
@@ -67,6 +70,7 @@ public class ProductServiceImp implements ProductService {
         return productVO;
     }
 
+    @Override
     public List<Product> findAllProduct() {
         List<Product> product = new ArrayList<Product>();
         try {
@@ -79,6 +83,7 @@ public class ProductServiceImp implements ProductService {
         return product;
     }
 
+    @Override
     public boolean deletProductByName(String name) {
         Boolean success = Boolean.FALSE;
         ProductVO ProductVO = findProductByName(name);
@@ -97,6 +102,7 @@ public class ProductServiceImp implements ProductService {
         return success;
     }
 
+    @Override
     public boolean deletProductByID(Long idProduct) {
         Boolean success = Boolean.FALSE;
         try {
