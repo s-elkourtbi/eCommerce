@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 @SequenceGenerator(name = "SEQ_PRODUCT", sequenceName = "SEQ_PRODUCT", allocationSize = 1)
 @Table(name = "PRODUCT")
-@Entity(name = "Product")
+@Entity(name = "ProductVO")
 public class Product {
 
     /**
