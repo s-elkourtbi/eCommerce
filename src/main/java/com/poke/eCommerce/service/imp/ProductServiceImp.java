@@ -7,6 +7,7 @@ import com.poke.eCommerce.service.ProductService;
 import com.poke.eCommerce.valueObject.ProductVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionException;
 
@@ -120,4 +121,27 @@ public class ProductServiceImp implements ProductService {
         return success;
     }
 
+    @Override
+    public List<Product> sortProduct(String sort) {
+        List<Product> product = new ArrayList<Product>();
+        try {
+            switch(sort)
+            {
+                case "name":
+                    product = productRepository.findAll(Sort.by(Sort.Direction.ASC, "name"));
+                    break;
+                case "price":
+                    product = productRepository.findAll(Sort.by(Sort.Direction.ASC, "price"));
+                    break;
+                case "weight":
+                    product = productRepository.findAll(Sort.by(Sort.Direction.ASC, "weight"));
+                    break;
+                default:
+                    System.out.println("no match");
+            }
+        } catch (TransactionException e) {
+            log.error(e.getMessage());
+        }
+        return product;
+    }
 }

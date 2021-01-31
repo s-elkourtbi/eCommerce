@@ -18,4 +18,6 @@ public interface ProductService {
     boolean deletProductByName(String name);
 
     boolean deletProductByID(Long idProduct);
+
+    List<Product> sortProduct(String sort);
 }
