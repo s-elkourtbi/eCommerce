@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,7 +20,10 @@ import java.util.List;
 @AllArgsConstructor
 @SequenceGenerator(name = "SEQ_PRODUCT", sequenceName = "SEQ_PRODUCT", allocationSize = 1)
 @Table(name = "PRODUCT")
-@Entity(name = "ProductVO")
+@Entity(name = "Product")
+@DynamicUpdate
+@NamedQuery(name = "product.findByName",
+        query = "SELECT u FROM Product u WHERE u.name = :name")
 public class Product {
 
     /**
