@@ -29,7 +29,7 @@ public class Bill {
     private Long idBill;
 
     @Column(name = "AMOUNT", nullable = false)
-    private Long amount;
+    private Double amount;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "DATE_CREATION")

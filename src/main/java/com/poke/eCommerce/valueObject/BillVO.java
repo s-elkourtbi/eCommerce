@@ -13,7 +13,7 @@ import java.util.Date;
 @AllArgsConstructor
 public class BillVO {
 
-    private Long amount;
+    private Double amount;
 
     private Date dateCreation;
 }

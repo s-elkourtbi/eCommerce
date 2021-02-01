@@ -4,6 +4,7 @@ import com.poke.eCommerce.entities.Bill;
 import com.poke.eCommerce.entities.Product;
 import com.poke.eCommerce.repository.BillRepository;
 import com.poke.eCommerce.service.BillService;
+import com.poke.eCommerce.valueObject.BillVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.TransactionException;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -20,6 +22,7 @@ public class BillServiceImpl implements BillService {
     @Autowired
     private BillRepository billRepository;
 
+    @Override
     public List<Bill> sortBill(String sort) {
         List<Bill> bills = new ArrayList<Bill>();
         try {
@@ -38,5 +41,16 @@ public class BillServiceImpl implements BillService {
             log.error(e.getMessage());
         }
         return bills;
+    }
+
+    @Override
+    public void generateBill(Date date, Double amount) {
+        BillVO billVO = new BillVO();
+        billVO.setDateCreation(date);
+        if(amount >= 1000) {
+            billVO.setAmount(amount*0.95);
+        } else {
+            billVO.setAmount(amount);
+        }
     }
 }

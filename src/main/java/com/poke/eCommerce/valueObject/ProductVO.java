@@ -15,7 +15,7 @@ public class ProductVO {
 
     private String name;
 
-    private Long price;
+    private Double price;
 
     private Long weight;
 }

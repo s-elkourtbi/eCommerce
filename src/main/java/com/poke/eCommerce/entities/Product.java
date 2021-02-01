@@ -34,12 +34,16 @@ public class Product {
     private String name;
 
     @Column(name = "PRICE", nullable = false)
-    private Long price;
+    private Double price;
 
     @Column(name = "WEIGHT", nullable = false)
     private Long weight;
 
-    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
-    private List<ListProduct> listProducts;
+//    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
+//    private List<ListProduct> listProducts;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "ID_ORDER")
+    private Order order;
 
 }

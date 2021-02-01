@@ -35,15 +35,18 @@ public class Order {
     private Status status;
 
     @Column(name = "SHIPMENTAMOUNT", nullable = false)
-    private Long shipmentAmount;
+    private Double shipmentAmount;
 
     @Column(name = "TOTALAMOUNT", nullable = false)
-    private Long totalAmount;
+    private Double totalAmount;
 
     @Column(name = "WEIGHT", nullable = false)
     private Long weight;
 
+//    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
+//    private List<ListProduct> listProducts;
+
     @OneToMany(mappedBy = "order", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
-    private List<ListProduct> listProducts;
+    private List<Product> listProduct;
 
 }

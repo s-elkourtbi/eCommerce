@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,10 +18,12 @@ public class OrderVO {
 
     private Status status;
 
-    private Long shipmentAmount;
+    private Double shipmentAmount;
 
-    private Long totalAmount;
+    private Double totalAmount;
 
     private Long weight;
+
+    private List<ProductVO> productVOs;
 
 }
