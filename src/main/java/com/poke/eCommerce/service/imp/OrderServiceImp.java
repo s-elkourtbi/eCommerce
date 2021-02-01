@@ -32,9 +32,9 @@ public class OrderServiceImp implements OrderService{
     public Boolean newOrder(List<ProductVO> ProductVO) {
         Boolean success = Boolean.FALSE;
         OrderVO orderVO = new OrderVO();
-        Double amount = Double.valueOf(1);
-        Double shipmentAmount = Double.valueOf(1);
-        Long weight = 1L;
+        Double amount = Double.valueOf(0);
+        Double shipmentAmount = Double.valueOf(0);
+        Long weight = 0L;
         try {
             if(!ProductVO.isEmpty()) {
                 for (ProductVO productVO : ProductVO) {
