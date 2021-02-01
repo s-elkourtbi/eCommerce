@@ -71,7 +71,7 @@ public class OrderServiceImp implements OrderService{
     }
 
     @Override
-    public List<Order> findAllProduct() {
+    public List<Order> findAllOrder() {
         List<Order> orders = new ArrayList<Order>();
         try {
             {
@@ -107,15 +107,27 @@ public class OrderServiceImp implements OrderService{
 
     @Transactional
     @Override
-    public boolean updateOrderStatu(Long idOrder, Status status) {
+    public boolean updateOrderStatu(Long idOrder, String statuString) {
         Boolean success = Boolean.FALSE;
+        Status status = Status.PENDING;
+        switch (statuString)
+        {
+            case "PAID":
+                status = Status.PAID;
+                break;
+            case "CANCELLED":
+                status = Status.CANCELLED;
+                break;
+            default:
+                System.out.println("no match");
+        }
         try {
             if (idOrder != null) {
                 OrderVO orderVO = findOrderById(idOrder);
-                orderRepository.save(OrderDto.orderFromVoToEntity(orderVO));
                 orderVO.setStatus(status);
+                orderRepository.save(OrderDto.orderFromVoToEntity(orderVO));
                 log.info("the status has changed to " + orderVO.getStatus());
-                if (status == Status.PAID) {
+                if (orderVO.getStatus() == Status.PAID) {
                     billService.generateBill(Utils.getCurrentDate(), orderVO.getTotalAmount());
                 }
                 success = Boolean.TRUE;
@@ -123,7 +135,7 @@ public class OrderServiceImp implements OrderService{
         } catch (TransactionException e) {
             log.error(e.getMessage());
         }
-        return false;
+        return success;
     }
 
     public Double shipmentCoast(Long weight) {

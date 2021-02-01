@@ -1,5 +1,6 @@
 package com.poke.eCommerce.service.imp;
 
+import com.poke.eCommerce.dto.BillDto;
 import com.poke.eCommerce.entities.Bill;
 import com.poke.eCommerce.entities.Product;
 import com.poke.eCommerce.repository.BillRepository;
@@ -47,10 +48,15 @@ public class BillServiceImpl implements BillService {
     public void generateBill(Date date, Double amount) {
         BillVO billVO = new BillVO();
         billVO.setDateCreation(date);
-        if(amount >= 1000) {
-            billVO.setAmount(amount*0.95);
-        } else {
-            billVO.setAmount(amount);
+        try {
+            if (amount >= 1000) {
+                billVO.setAmount(amount * 0.95);
+            } else {
+                billVO.setAmount(amount);
+            }
+            billRepository.save(BillDto.billFromEntitieToVo(billVO));
+        } catch (TransactionException e) {
+            log.error(e.getMessage());
         }
     }
 }

@@ -46,7 +46,7 @@ public class Order {
 //    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
 //    private List<ListProduct> listProducts;
 
-    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.PERSIST)
     private List<Product> listProduct;
 
 }

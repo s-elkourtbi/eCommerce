@@ -46,8 +46,8 @@ public class Product {
 //    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
 //    private List<ListProduct> listProducts;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "ID_ORDER")
-    private Order order;
+//    @ManyToOne(cascade = CascadeType.PERSIST)
+//    @JoinColumn(name = "ID_ORDER")
+//    private Order order;
 
 }

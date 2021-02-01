@@ -13,10 +13,10 @@ public interface OrderService {
 
     OrderVO findOrderById(Long idOrder);
 
-    List<Order> findAllProduct();
+    List<Order> findAllOrder();
 
     boolean deletOrderByID(Long idOrder);
 
     @Transactional
-    boolean updateOrderStatu(Long idOrder, Status status);
+    boolean updateOrderStatu(Long idOrder, String status);
 }

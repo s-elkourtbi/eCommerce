@@ -19,9 +19,6 @@ public class OrderDto {
         orderVO.setTotalAmount(order.getTotalAmount());
         orderVO.setWeight(order.getWeight());
         orderVO.setIdOrder(order.getIdOrder());
-        for(Product product : order.getListProduct()) {
-            productVOList.add(ProducDto.productFromEntitieToVo(product));
-        }
 
         orderVO.setProductVOs(productVOList);
 
@@ -30,6 +27,7 @@ public class OrderDto {
 
     public static Order orderFromVoToEntity(OrderVO orderVO) {
         Order order = new Order();
+        List<Product> productList = new ArrayList<>();
 
         order.setShipmentAmount(orderVO.getShipmentAmount());
         order.setStatus(orderVO.getStatus());
@@ -37,6 +35,7 @@ public class OrderDto {
         order.setWeight(orderVO.getWeight());
         order.setIdOrder(orderVO.getIdOrder());
 
+        order.setListProduct(productList);
         return order;
     }
 }
