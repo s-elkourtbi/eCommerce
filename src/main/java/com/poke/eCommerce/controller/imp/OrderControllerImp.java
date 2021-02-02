@@ -25,7 +25,7 @@ public class OrderControllerImp implements OrderController {
     private BillService billService;
 
     @Override
-    @RequestMapping(value = "/newOrder", method = RequestMethod.POST)
+    @RequestMapping(value = "/newOrder", produces = "application/json" ,method = RequestMethod.POST)
     public Boolean newOrder(@RequestBody List<ProductVO> productVO) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -37,7 +37,7 @@ public class OrderControllerImp implements OrderController {
     }
 
     @Override
-    @RequestMapping(value = "/findOrderById", method = RequestMethod.GET)
+    @RequestMapping(value = "/findOrderById", produces =  "application/json", method = RequestMethod.GET)
     public OrderVO findOrderById(@RequestParam Long idOrder) {
         OrderVO orderVO = new OrderVO();
         try {
@@ -49,7 +49,7 @@ public class OrderControllerImp implements OrderController {
     }
 
     @Override
-    @RequestMapping(value = "/findAllOrder", method = RequestMethod.GET)
+    @RequestMapping(value = "/findAllOrder", produces =  "application/json", method = RequestMethod.GET)
     public List<Order> findAllOrder() {
         List<Order> order = new ArrayList<>();
         try {
@@ -61,7 +61,7 @@ public class OrderControllerImp implements OrderController {
     }
 
     @Override
-    @RequestMapping(value = "/deletOrderById", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deletOrderById", produces =  "application/json", method = RequestMethod.DELETE)
     public Boolean deleteById(@RequestParam Long idOrder) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -73,7 +73,7 @@ public class OrderControllerImp implements OrderController {
     }
 
     @Override
-    @RequestMapping(value = "/updateOrder", method = RequestMethod.PATCH)
+    @RequestMapping(value = "/updateOrder", produces =  "application/json", method = RequestMethod.PATCH)
     public Boolean updateOrder(@RequestParam Long idOrder, @RequestParam String status) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -85,7 +85,7 @@ public class OrderControllerImp implements OrderController {
     }
 
     @Override
-    @RequestMapping(value = "/sortAllPBill", method = RequestMethod.GET)
+    @RequestMapping(value = "/sortAllPBill", produces =  "application/json", method = RequestMethod.GET)
     public List<Bill> sortAllProduct(@RequestParam String sort) {
         List<Bill> billList= new ArrayList<>();
         try {

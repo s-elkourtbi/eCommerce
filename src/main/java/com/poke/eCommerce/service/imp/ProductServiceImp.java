@@ -49,7 +49,7 @@ public class ProductServiceImp implements ProductService {
                 Query q = em.createNamedQuery("product.findByName");
                 q.setParameter("name", name);
                 productVO = ProducDto.productFromEntitieToVo(
-                        (Product) q.getSingleResult());
+                        (Product) q.getResultList().get(0));
                 log.info("Product found" + productVO.getName());
             }
         } catch (TransactionException e) {

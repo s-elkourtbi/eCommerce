@@ -19,7 +19,7 @@ public class ProductControllerImp implements ProductController {
     private ProductService productService;
 
     @Override
-    @RequestMapping(value = "/newProduct", method = RequestMethod.POST)
+    @RequestMapping(value = "/newProduct", produces =  "application/json", method = RequestMethod.POST)
     public Boolean newProduct(@RequestBody ProductVO productVO) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -31,7 +31,7 @@ public class ProductControllerImp implements ProductController {
     }
 
     @Override
-    @RequestMapping(value = "/findByName", method = RequestMethod.GET)
+    @RequestMapping(value = "/findByName", produces =  "application/json", method = RequestMethod.GET)
     public ProductVO findByName(@RequestParam String name) {
         ProductVO productVO = new ProductVO();
         try {
@@ -43,7 +43,7 @@ public class ProductControllerImp implements ProductController {
     }
 
     @Override
-    @RequestMapping(value = "/findById", method = RequestMethod.GET)
+    @RequestMapping(value = "/findById", produces =  "application/json", method = RequestMethod.GET)
     public ProductVO findById(@RequestParam Long idProduct) {
         ProductVO productVO = new ProductVO();
         try {
@@ -55,7 +55,7 @@ public class ProductControllerImp implements ProductController {
     }
 
     @Override
-    @RequestMapping(value = "/deletProductByName", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deletProductByName", produces =  "application/json", method = RequestMethod.DELETE)
     public Boolean deleteById(@RequestParam String name) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -67,7 +67,7 @@ public class ProductControllerImp implements ProductController {
     }
 
     @Override
-    @RequestMapping(value = "/deletProductById", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/deletProductById", produces =  "application/json", method = RequestMethod.DELETE)
     public Boolean deleteById(@RequestParam Long idProduct) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -79,7 +79,7 @@ public class ProductControllerImp implements ProductController {
     }
 
     @Override
-    @RequestMapping(value = "/findAllProduct", method = RequestMethod.GET)
+    @RequestMapping(value = "/findAllProduct", produces =  "application/json", method = RequestMethod.GET)
     public List<Product> findAllProduct() {
         List<Product> productList = new ArrayList<>();
         try {
@@ -91,7 +91,7 @@ public class ProductControllerImp implements ProductController {
     }
 
     @Override
-    @RequestMapping(value = "/sortAllProduct", method = RequestMethod.GET)
+    @RequestMapping(value = "/sortAllProduct", produces =  "application/json", method = RequestMethod.GET)
     public List<Product> sortAllProduct(@RequestParam String sort) {
         List<Product> productList = new ArrayList<>();
         try {
