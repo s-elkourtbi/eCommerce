@@ -31,7 +31,7 @@ public class Order {
     private Long idOrder;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "STATUS")
+    @Column(name = "STATUS", nullable = false)
     private Status status;
 
     @Column(name = "SHIPMENTAMOUNT", nullable = false)
@@ -42,9 +42,6 @@ public class Order {
 
     @Column(name = "WEIGHT", nullable = false)
     private Long weight;
-
-//    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
-//    private List<ListProduct> listProducts;
 
     @OneToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
     private List<Product> listProduct;

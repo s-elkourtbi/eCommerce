@@ -19,7 +19,9 @@ public class OrderDto {
         orderVO.setTotalAmount(order.getTotalAmount());
         orderVO.setWeight(order.getWeight());
         orderVO.setIdOrder(order.getIdOrder());
-
+        for(Product pro : order.getListProduct()) {
+            productVOList.add(ProducDto.productFromEntitieToVo(pro));
+        }
         orderVO.setProductVOs(productVOList);
 
         return orderVO;
@@ -34,8 +36,11 @@ public class OrderDto {
         order.setTotalAmount(orderVO.getTotalAmount());
         order.setWeight(orderVO.getWeight());
         order.setIdOrder(orderVO.getIdOrder());
-
+        for(ProductVO pro : orderVO.getProductVOs()) {
+            productList.add(ProducDto.productFromVoToEntitie(pro));
+        }
         order.setListProduct(productList);
+
         return order;
     }
 }

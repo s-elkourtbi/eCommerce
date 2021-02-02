@@ -26,7 +26,7 @@ public class OrderControllerImp implements OrderController {
 
     @Override
     @RequestMapping(value = "/newOrder", method = RequestMethod.POST)
-    public Boolean newProduct(@RequestBody List<ProductVO> productVO) {
+    public Boolean newOrder(@RequestBody List<ProductVO> productVO) {
         Boolean succes = Boolean.FALSE;
         try {
             succes = orderService.newOrder(productVO);

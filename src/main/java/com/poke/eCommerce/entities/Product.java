@@ -8,7 +8,6 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
-import java.util.List;
 
 /**
  * The product entitie.
@@ -34,7 +33,7 @@ public class Product {
     @Column(name = "ID_PRODUCT", nullable = false, unique = true)
     private Long idProduct;
 
-    @Column(name = "NAME", length = 256, unique = true)
+    @Column(name = "NAME", length = 256, nullable = false)
     private String name;
 
     @Column(name = "PRICE", nullable = false)
@@ -43,8 +42,6 @@ public class Product {
     @Column(name = "WEIGHT", nullable = false)
     private Long weight;
 
-//    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER , cascade = CascadeType.PERSIST)
-//    private List<ListProduct> listProducts;
 
 //    @ManyToOne(cascade = CascadeType.PERSIST)
 //    @JoinColumn(name = "ID_ORDER")

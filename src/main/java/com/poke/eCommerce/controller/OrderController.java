@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface OrderController {
 
-    Boolean newProduct(List<ProductVO> productVO);
+    Boolean newOrder(List<ProductVO> productVO);
 
     OrderVO findOrderById(Long idOrder);
 
