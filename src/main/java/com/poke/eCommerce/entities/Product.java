@@ -43,8 +43,8 @@ public class Product {
     private Long weight;
 
 
-//    @ManyToOne(cascade = CascadeType.PERSIST)
-//    @JoinColumn(name = "ID_ORDER")
-//    private Order order;
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "ID_ORD")
+    private Order order;
 
 }

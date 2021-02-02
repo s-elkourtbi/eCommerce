@@ -43,7 +43,7 @@ public class Order {
     @Column(name = "WEIGHT", nullable = false)
     private Long weight;
 
-    @OneToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+    @OneToMany(fetch = FetchType.LAZY , cascade = CascadeType.ALL)
     private List<Product> listProduct;
 
 }

@@ -33,7 +33,6 @@ public class OrderServiceImp implements OrderService{
         Boolean success = Boolean.FALSE;
         OrderVO orderVO = new OrderVO();
         Double amount = Double.valueOf(0);
-        Double shipmentAmount = Double.valueOf(0);
         Long weight = 0L;
         try {
             if(!ProductVO.isEmpty()) {
