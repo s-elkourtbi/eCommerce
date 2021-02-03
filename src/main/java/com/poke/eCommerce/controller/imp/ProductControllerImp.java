@@ -6,6 +6,7 @@ import com.poke.eCommerce.service.ProductService;
 import com.poke.eCommerce.valueObject.ProductVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -20,6 +21,7 @@ public class ProductControllerImp implements ProductController {
 
     @Override
     @RequestMapping(value = "/newProduct", produces =  "application/json", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.CREATED)
     public Boolean newProduct(@RequestBody ProductVO productVO) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -32,6 +34,7 @@ public class ProductControllerImp implements ProductController {
 
     @Override
     @RequestMapping(value = "/findByName", produces =  "application/json", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public ProductVO findByName(@RequestParam String name) {
         ProductVO productVO = new ProductVO();
         try {
@@ -44,6 +47,7 @@ public class ProductControllerImp implements ProductController {
 
     @Override
     @RequestMapping(value = "/findById", produces =  "application/json", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public ProductVO findById(@RequestParam Long idProduct) {
         ProductVO productVO = new ProductVO();
         try {
@@ -56,6 +60,7 @@ public class ProductControllerImp implements ProductController {
 
     @Override
     @RequestMapping(value = "/deletProductByName", produces =  "application/json", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public Boolean deleteById(@RequestParam String name) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -68,6 +73,7 @@ public class ProductControllerImp implements ProductController {
 
     @Override
     @RequestMapping(value = "/deletProductById", produces =  "application/json", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public Boolean deleteById(@RequestParam Long idProduct) {
         Boolean succes = Boolean.FALSE;
         try {
@@ -80,6 +86,7 @@ public class ProductControllerImp implements ProductController {
 
     @Override
     @RequestMapping(value = "/findAllProduct", produces =  "application/json", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public List<Product> findAllProduct() {
         List<Product> productList = new ArrayList<>();
         try {
@@ -92,6 +99,7 @@ public class ProductControllerImp implements ProductController {
 
     @Override
     @RequestMapping(value = "/sortAllProduct", produces =  "application/json", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
     public List<Product> sortAllProduct(@RequestParam String sort) {
         List<Product> productList = new ArrayList<>();
         try {

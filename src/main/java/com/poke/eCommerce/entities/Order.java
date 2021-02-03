@@ -17,7 +17,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@SequenceGenerator(name = "SEQ_ORD", sequenceName = "SEQ_ORD", allocationSize = 1)
+@SequenceGenerator(name = "SEQ_ORD", sequenceName = "SEQ_ORD", allocationSize = 1, initialValue = 10)
 @Table(name = "ORD")
 @Entity(name = "Ord")
 public class Order {

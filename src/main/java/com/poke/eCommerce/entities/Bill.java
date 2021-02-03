@@ -15,7 +15,7 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@SequenceGenerator(name = "SEQ_BILL", sequenceName = "SEQ_BILL", allocationSize = 1)
+@SequenceGenerator(name = "SEQ_BILL", sequenceName = "SEQ_BILL", allocationSize = 1, initialValue = 10)
 @Table(name = "BILL")
 @Entity(name = "Bill")
 public class Bill {
